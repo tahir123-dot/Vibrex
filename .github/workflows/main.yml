@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: |
             VibrexBackend/package-lock.json
             Vibrex/package-lock.json
@@ -42,9 +42,9 @@ jobs:
       - name: Restart backend with PM2
         working-directory: ./VibrexBackend
         run: |
-          /home/ubuntu/.nvm/versions/node/v22.16.0/bin/pm2 delete vibrex-backend || true
-          /home/ubuntu/.nvm/versions/node/v22.16.0/bin/pm2 start index.js --name vibrex-backend
-          /home/ubuntu/.nvm/versions/node/v22.16.0/bin/pm2 save
+          /home/ubuntu/.nvm/versions/node/v22.20.0/bin/pm2 delete vibrex-backend || true
+          /home/ubuntu/.nvm/versions/node/v22.20.0/bin/pm2 start index.js --name vibrex-backend
+          /home/ubuntu/.nvm/versions/node/v22.20.0/bin/pm2 save
 
       # ------------------------------
       # FRONTEND SETUP
