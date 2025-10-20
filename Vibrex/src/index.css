@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://db.onlinewebfonts.com/c/d1a580023d40c546276decde1c711e60?family=SuisseIntl-Bold');
+@import "tailwindcss";
+
+body {
+  background-color: black;
+ font-family: 'Suisse Intl Bold', sans-serif;
+
+ 
+}

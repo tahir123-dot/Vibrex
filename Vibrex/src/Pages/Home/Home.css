@@ -1,0 +1,15 @@
+.background {
+  background-image: url("../../assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(46, 3, 237, 0.8); /* merge ke liye base color */
+  background-blend-mode: multiply;
+  height: 100vh;
+  width: 100%;
+}
+
+.no-inherit {
+  all: unset;
+}
+

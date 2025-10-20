@@ -1,0 +1,4 @@
+.outline-text {
+  -webkit-text-stroke: 1px white; /* outline ka color aur thickness */
+ /* andar ka text transparent */
+}
