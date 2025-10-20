@@ -12,9 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 const Port = 5000;
-app.get("/", (req, res) => {
-  res.send("api is running");
-});
+
 app.use("/api", lgoinRoutes);
 app.use("/api/products", productRoutes);
 
