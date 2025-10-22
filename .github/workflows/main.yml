@@ -45,9 +45,9 @@ jobs:
       - name: Restart backend with PM2
         working-directory: ./VibrexBackend
         run: |
-          /home/ubuntu/.nvm/versions/node/v22.21.0/bin/pm2 delete vibrex-backend || true
-          /home/ubuntu/.nvm/versions/node/v22.21.0/bin/pm2 start index.js --name vibrex-backend
-          /home/ubuntu/.nvm/versions/node/v22.21.0/bin/pm2 save
+          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 delete vibrex-backend || true
+          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 start index.js --name vibrex-backend
+          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 save
 
       # ------------------------------
       # FRONTEND SETUP
