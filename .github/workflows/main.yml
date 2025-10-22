@@ -73,5 +73,8 @@ jobs:
         run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
       - name: Deploy frontend to Nginx
+        working-directory: ./Vibrex
         run: |
-          sudo rsync -av --delete ./Vibrex/dist/ /var/www/html/
+          echo "Checking dist folder..."
+          ls -la dist/
+          sudo rsync -av --delete dist/ /var/www/html/
