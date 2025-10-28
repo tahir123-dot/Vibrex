@@ -2,8 +2,7 @@ import React from "react";
 import AppRoutes from "./Component/AppRoutes/AppRoutes";
 
 const App = () => {
-  return (
-    
+  return (  
     <div className="w-full mx-auto max-w-7xl">
       <AppRoutes />
     </div>
