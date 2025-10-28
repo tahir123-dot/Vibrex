@@ -68,13 +68,28 @@ jobs:
         run: |
           echo "${{ secrets.PROD_FRONTEND_ENV }}" > .env
 
+      # ------------------------------
+      # FIXED: FRONTEND BUILD (Optimized)
+      # ------------------------------
       - name: Build frontend
         working-directory: ./Vibrex
-        run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
+        run: |
+          echo "Cleaning node_modules and cache..."
+          rm -rf node_modules
+          npm ci
+          echo "Building frontend with more memory..."
+          export NODE_OPTIONS="--max-old-space-size=8192"
+          npm run build
 
+      # ------------------------------
+      # DEPLOY TO NGINX
+      # ------------------------------
       - name: Deploy frontend to Nginx
         working-directory: ./Vibrex
         run: |
           echo "Checking dist folder..."
           ls -la dist/
+          echo "Deploying build to Nginx..."
           sudo rsync -av --delete dist/ /var/www/html/
+          echo "Restarting Nginx..."
+          sudo systemctl restart nginx
