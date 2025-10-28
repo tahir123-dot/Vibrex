@@ -37,7 +37,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-8xl font-bold text-gray-900"
         >
-          We are <span className="text-indigo-600">NeuroForge</span>
+          We are <span className="text-indigo-600">Vibrex</span>
         </motion.h2>
 
         {/* Typewriter effect */}
@@ -98,10 +98,10 @@ const About = () => {
         </h3>
 
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans leading-relaxed max-w-full lg:max-w-4xl text-justify">
-          NeuroForge started in a small room with one vision: to merge design
+          Vibrex started in a small room with one vision: to merge design
           with intelligence. We saw startups struggling with poor UX and
           enterprises wasting time on clunky systems. So we decided to fix it —
-          one product at a time. Today, NeuroForge partners with founders,
+          one product at a time. Today, Vibrex partners with founders,
           product teams, and enterprises to craft digital experiences that scale
           globally.
         </p>
@@ -130,7 +130,7 @@ const About = () => {
             Rashid
           </span>
           <p className="text-gray-200 text-lg md:text-xl mt-4">
-            2024, When NeuroForge Began
+            2024, When Vibrex Began
           </p>
         </motion.div>
 
@@ -143,7 +143,7 @@ const About = () => {
           className="flex flex-col gap-6 w-full lg:w-2/3 text-justify"
         >
           <p className="text-gray-200 text-lg md:text-xl">
-            Back in late 2024, I started NeuroForge from a small room in
+            Back in late 2024, I started Vibrex from a small room in
             Islamabad while pursuing my bachelor’s in Software Engineering. The
             vision was simple: solve real-world problems and make digital
             experiences seamless for everyone.
@@ -158,9 +158,9 @@ const About = () => {
             possibilities are limitless.”
           </p>
           <p className="text-gray-200 text-lg md:text-xl">
-            Today, NeuroForge is on a journey to become a globally recognized
+            Today, Vibrex is on a journey to become a globally recognized
             software company. From humble beginnings to ambitious projects
-            ahead, every step is guided by the vision to make NeuroForge not
+            ahead, every step is guided by the vision to make Vibrex not
             just a company, but a catalyst for innovation worldwide.
           </p>
         </motion.div>

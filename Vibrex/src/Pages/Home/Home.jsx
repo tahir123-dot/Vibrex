@@ -196,7 +196,6 @@ const Home = () => {
         )}
       </div>
 
-   
       <div
         className="h-screen bg-[#1c1c1c] overflow-hidden relative"
         id="section2"
@@ -229,7 +228,7 @@ const Home = () => {
             className="max-w-5xl text-center mt-8 text-lg md:text-2xl lg:text-3xl 
        font-light leading-relaxed md:leading-snug px-2 md:px-10 text-gray-200"
           >
-            At <span className="font-semibold text-blue-200">NeuroForge</span>,
+            At <span className="font-semibold text-blue-200">Vibrex</span>,
             we’re more than just developers — we’re problem solvers, engineers,
             and designers on a mission to transform businesses with AI. From
             automation to product design, we deliver scalable, future-ready
@@ -280,7 +279,7 @@ const Home = () => {
           </h1>
 
           <h2 className="text-base md:text-lg lg:text-[20px] font-bold text-[#979797] leading-relaxed max-w-3xl">
-            At NeuroForge, we don’t just code. We design experiences, automate
+            At Vibrex, we don’t just code. We design experiences, automate
             workflows, and deliver results that matter. Every project begins
             with understanding your challenges — and ends with a product that’s
             efficient, scalable, and built for the future.
@@ -352,9 +351,9 @@ const Home = () => {
         </h1>
 
         <h2 className="text-base md:text-lg lg:text-[20px] font-bold text-[#979797] leading-relaxed max-w-3xl">
-          NeuroForge transforms complex business processes into intuitive,
-          AI-driven solutions. From startups to enterprises, we build software
-          that thinks, learns, and scales with your goals. Born in Islamabad, we
+          Vibrex transforms complex business processes into intuitive, AI-driven
+          solutions. From startups to enterprises, we build software that
+          thinks, learns, and scales with your goals. Born in Islamabad, we
           started small with a bold idea – simplify the digital world. Today,
           our solutions empower businesses to achieve more with smarter
           workflows, better insights, and faster outcomes.

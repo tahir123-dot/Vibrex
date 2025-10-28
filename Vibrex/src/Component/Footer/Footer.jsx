@@ -106,7 +106,7 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-4 text-black">Contact</h2>
             <p className="text-sm">Islamabad , Pakistan</p>
             <p className="text-sm">+92 341 5150339</p>
-            <p className="text-sm">📧 info@neuroforge.com</p>
+            <p className="text-sm">📧 info@vibrex.com</p>
 
             {/* Social Icons */}
             <div className="flex gap-4 mt-4">

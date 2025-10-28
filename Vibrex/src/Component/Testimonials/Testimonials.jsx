@@ -10,7 +10,7 @@ const testimonials = [
     name: "Emily Carter",
     country: "USA",
     role: "Founder, SwiftMart",
-    text: "NeuroForge built our entire e-commerce platform with MERN stack. The site is fast, scalable, and super user-friendly. Customers love the smooth checkout process!",
+    text: "Vibrex built our entire e-commerce platform with MERN stack. The site is fast, scalable, and super user-friendly. Customers love the smooth checkout process!",
     service: "Web & App Development",
     img: testpic,
   },
@@ -76,7 +76,7 @@ const Testimonials = () => {
         </h1>
         <p className="text-gray-600 text-lg md:text-xl mt-3 max-w-2xl mx-auto">
           Discover how our partners worldwide achieve next-level growth with
-          NeuroForge.
+          Vibrex.
         </p>
       </div>
 

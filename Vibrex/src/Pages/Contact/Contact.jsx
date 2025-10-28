@@ -85,7 +85,7 @@ export default function Contact() {
               </h3>
               <p className="text-gray-300 text-sm">Royal Town, 88/KA, Royal</p>
               <p className="flex items-center gap-2 mt-3 text-gray-100 hover:text-white transition">
-                <Mail size={18} /> hello@neuroforge.agency
+                <Mail size={18} /> hello@vibrex.agency
               </p>
               <p className="flex items-center gap-2 text-gray-100 hover:text-white transition">
                 <Phone size={18} /> +92 341 5150339
@@ -104,7 +104,7 @@ export default function Contact() {
                 75 E 3rd St Sheridan, WY 82801
               </p>
               <p className="flex items-center gap-2 mt-3 text-gray-100 hover:text-white transition">
-                <Mail size={18} /> hello@neuroforge.agency
+                <Mail size={18} /> hello@vibrex.agency
               </p>
               <p className="flex items-center gap-2 text-gray-100 hover:text-white transition">
                 <Phone size={18} /> +1 470 504 3155
