@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 
 const Navbar = () => {
   const headerRef = useRef(null);
@@ -86,7 +85,7 @@ const Navbar = () => {
               onClick={() =>
                 window.open("https://wa.me/923415150339", "_blank")
               }
-              className="bg-white text-black py-2 px-5 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium shadow-md lets-talk-btn"
+              className="bg-white text-black py-2 px-5 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium shadow-md sm:block hidden"
             >
               Let's Talk
             </div>
