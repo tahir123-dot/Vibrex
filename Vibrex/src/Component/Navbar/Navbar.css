@@ -1,0 +1,5 @@
+@media (max-width: 422px) {
+  .lets-talk-btn {
+    display: none;
+  }
+}
