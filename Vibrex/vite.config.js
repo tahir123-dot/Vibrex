@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { ViteSitemap } from "vite-plugin-sitemap";
 
 export default defineConfig({
   plugins: [
@@ -15,6 +16,16 @@ export default defineConfig({
           },
         },
       },
+    }),
+    ViteSitemap({
+      hostname: 'https://vibrex.tech',  // Tumhari website URL
+      outDir: 'dist',                   // Ye default Vite ka build folder hai
+      pages: [
+        '/',
+        '/about',
+        '/services',
+        '/contact'
+      ],
     }),
   ],
 });
