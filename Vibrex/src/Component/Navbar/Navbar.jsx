@@ -85,7 +85,8 @@ const Navbar = () => {
               onClick={() =>
                 window.open("https://wa.me/923415150339", "_blank")
               }
-              className="bg-white text-black py-2 px-5 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium shadow-md"
+              className="bg-white text-black py-2 px-5 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium shadow-md 
+             max-[422px]:hidden"
             >
               Let's Talk
             </div>
