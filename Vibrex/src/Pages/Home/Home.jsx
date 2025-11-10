@@ -273,7 +273,7 @@ const Home = () => {
           <h1 className="font-bold text-3xl md:text-5xl lg:text-[70px] tracking-tighter text-start w-full leading-tight  drop-shadow-[0_0_20px_rgba(0,0,0,0.3)]">
             DIGITAL SOLUTIONS
             <br />
-            <span className=" font-light text-2xl md:text-3xl lg:text-[30px] drop-shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+            <span className=" font-light  text-2xl md:text-3xl lg:text-[30px] drop-shadow-[0_0_20px_rgba(0,0,0,0.3)] tracking-wider">
               THAT DRIVE IMPACT
             </span>
           </h1>
