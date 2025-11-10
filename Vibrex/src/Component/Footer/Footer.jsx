@@ -5,10 +5,21 @@ import {
   FaTiktok,
   FaInstagram,
   FaLinkedin,
+  FaEnvelope,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+const socialLinks = [
+  "https://www.youtube.com/channel/UCozjVsfgHcxd3FeTXevFRFg",
+  "https://x.com/vibrex_tech",
+  "https://www.tiktok.com/@vibrextech",
+  "https://instagram.com/tahir_.3925",
+  "https://www.linkedin.com/company/vibrextech/",
+];
+
 const Footer = () => {
+  const icons = [FaYoutube, FaTwitter, FaTiktok, FaInstagram, FaLinkedin];
+
   return (
     <>
       {/*<div className="h-screen bg-amber-400"></div>*/}
@@ -106,25 +117,27 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-4 text-black">Contact</h2>
             <p className="text-sm">Islamabad , Pakistan</p>
             <p className="text-sm">+92 341 5150339</p>
-            <p className="text-sm">📧 info@vibrex.com</p>
+            <a
+              href="mailto:hello@vibrex.tech"
+              className="text-black flex text-sm items-center gap-2 hover:underline"
+            >
+              <FaEnvelope />
+              hello@vibrex.tech
+            </a>
 
             {/* Social Icons */}
             <div className="flex gap-4 mt-4">
-              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white hover:bg-white transition cursor-pointer">
-                <FaYoutube className="text-white text-lg hover:text-black" />
-              </div>
-              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white hover:bg-white transition cursor-pointer">
-                <FaTwitter className="text-white text-lg hover:text-black" />
-              </div>
-              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white hover:bg-white transition cursor-pointer">
-                <FaTiktok className="text-white text-lg hover:text-black" />
-              </div>
-              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white hover:bg-white transition cursor-pointer">
-                <FaInstagram className="text-white text-lg hover:text-black" />
-              </div>
-              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-white hover:bg-white transition cursor-pointer">
-                <FaLinkedin className="text-white text-lg hover:text-black" />
-              </div>
+              {icons.map((Icon, index) => (
+                <a
+                  key={index}
+                  href={socialLinks[index]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-9 w-9 flex items-center justify-center rounded-full border border-gray-400 bg-gray-900 hover:bg-blue-500 transition-colors cursor-pointer"
+                >
+                  <Icon className="text-gray-100 hover:text-white text-lg transition-colors" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

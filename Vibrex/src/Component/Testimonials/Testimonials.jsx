@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import testpic from "../../assets/bg.png";
+import testpic1 from "../../assets/emily.jpg";
+import testpic2 from "../../assets/yuki.jpg";
+import testpic3 from "../../assets/evyn.jpg";
+import testpic4 from "../../assets/sophi.jpg";
+import testpic5 from "../../assets/savion.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +16,7 @@ const testimonials = [
     role: "Founder, SwiftMart",
     text: "Vibrex built our entire e-commerce platform with MERN stack. The site is fast, scalable, and super user-friendly. Customers love the smooth checkout process!",
     service: "Web & App Development",
-    img: testpic,
+    img: testpic1,
   },
   {
     name: "Yuki Tanaka",
@@ -20,7 +24,7 @@ const testimonials = [
     role: "CTO, ZenTech",
     text: "Their UI/UX design team transformed our ideas into stunning interactive prototypes. The final product looked exactly like the Figma designs – pixel perfect.",
     service: "UI/UX Creative Design",
-    img: testpic,
+    img: testpic2,
   },
   {
     name: "Ivan Petrov",
@@ -28,7 +32,7 @@ const testimonials = [
     role: "CEO, SmartBotics",
     text: "We integrated their AI chatbot solution for customer support. It reduced our response time by 70% and improved customer satisfaction dramatically.",
     service: "AI Solutions",
-    img: testpic,
+    img: testpic3,
   },
   {
     name: "Sophie Müller",
@@ -36,7 +40,7 @@ const testimonials = [
     role: "Product Manager, NovaHealth",
     text: "With their dedicated development team, we scaled our app within weeks. Communication was seamless and the developers felt like part of our in-house staff.",
     service: "Dedicated Development Team",
-    img: testpic,
+    img: testpic4,
   },
   {
     name: "Lucas Rossi",
@@ -44,7 +48,7 @@ const testimonials = [
     role: "COO, Finexa",
     text: "Their security audit saved us from major vulnerabilities. The team’s proactive monitoring gives us peace of mind while we focus on growth.",
     service: "Performance & Security",
-    img: testpic,
+    img: testpic5,
   },
 ];
 
