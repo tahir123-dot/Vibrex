@@ -14,6 +14,8 @@ import ShowCase from "../../Pages/ProductShowcase/ShowCase";
 import Login from "../../Pages/Admin/Login/Login";
 import Add from "../../Pages/Admin/AddProjects/Add";
 import ProtectedRoute from "../ProtectedRoute";
+import BlogList from "../../Pages/Blogs/BlogList";
+import BlogDetail from "../../Pages/Blogs/BlogDetail";
 
 const AppRoutes = () => {
   const [isReady, setIsReady] = useState(false);
@@ -76,6 +78,8 @@ const AppRoutes = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:blogId" element={<BlogDetail />} />
         <Route path="/codeBreakers" element={<Hackathone />} />
         <Route path="/gallery" element={<ShowCase />} />
         <Route path="/login" element={<Login />} />

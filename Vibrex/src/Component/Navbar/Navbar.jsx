@@ -117,13 +117,14 @@ const Navbar = () => {
           </button>
 
           {/* Menu Items */}
-          <ul className="space-y-8 text-left text-3xl font-light text-white">
+          <ul className="space-y-7 text-left text-3xl font-light text-white">
             {[
               { name: "Home", path: "/" },
               { name: "Services", path: "/services" },
               { name: "About Us", path: "/about" },
               { name: "Gallery", path: "/gallery" },
               { name: "Contact Us", path: "/contact" },
+              { name: "Blogs", path: "/blog" },
               { name: "CodeBreakers", path: "/codeBreakers" },
             ].map((item, i) => (
               <li
@@ -146,7 +147,7 @@ const Navbar = () => {
           </ul>
 
           {/* Footer */}
-          <div className="mt-auto mb-10 text-sm text-gray-300 tracking-widest uppercase">
+          <div className=" mb-10 mt-10 text-sm text-gray-300 tracking-widest uppercase">
             Crafted with ❤️ by Vibrex
           </div>
         </div>
