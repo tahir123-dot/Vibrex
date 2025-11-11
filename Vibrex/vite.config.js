@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
     ViteSitemap({
-      hostname: "https://vibrex.tech", // Tumhari website URL
+      hostname: "https://vibrex.tech", 
       outDir: "dist", // Ye default Vite ka build folder hai
       pages: ["/", "/about", "/services", "/contact", "/blog"],
     }),

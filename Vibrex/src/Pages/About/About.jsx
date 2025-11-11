@@ -107,6 +107,7 @@ const About = () => {
         </p>
       </motion.div>
 
+      
       {/* Founders Journey */}
       <section className="px-6 mt-2 md:px-16 lg:px-32 py-12 bg-black text-amber-50 flex flex-col lg:flex-row gap-12 lg:gap-20 rounded-2xl">
         {/* Left Side */}
