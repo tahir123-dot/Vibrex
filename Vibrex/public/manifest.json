@@ -1,0 +1,50 @@
+{
+  "name": "Vibrex - AI Solutions, Web & App Development Company",
+  "short_name": "Vibrex",
+  "description": "Vibrex (also known as Vibrex Tech) is an AI-powered software company offering modern web and mobile app development, automation tools, and innovative UI/UX design services worldwide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "lang": "en",
+  "dir": "ltr",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "categories": [
+    "technology",
+    "software",
+    "business",
+    "development",
+    "artificial intelligence"
+  ],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32 64x64 128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Vibrex Home",
+      "short_name": "Home",
+      "url": "/",
+      "description": "Visit Vibrex official website for AI-powered web and app solutions.",
+      "icons": [
+        { "src": "/favicon.png", "sizes": "96x96", "type": "image/png" }
+      ]
+    },
+    {
+      "name": "Contact Vibrex",
+      "short_name": "Contact",
+      "url": "/contact",
+      "description": "Connect with Vibrex team for business inquiries or project discussions.",
+      "icons": [
+        { "src": "/favicon.png", "sizes": "96x96", "type": "image/png" }
+      ]
+    }
+  ]
+}
