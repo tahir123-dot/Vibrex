@@ -32,7 +32,7 @@ export const addProduct = async (req, res) => {
 
 
 
-// ✅ Get all products
+//  Get all products
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find().sort({ createdAt: -1 });

@@ -1,3 +1,4 @@
+
 name: Deploy Vibrex App on EC2
 
 on:
@@ -7,21 +8,26 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: self-hosted   # <- ye tumhara EC2 hai (runner already registered hai)
 
     strategy:
       matrix:
-        node-version: [20.x] # Changed from 22.x to 20.x for stability
+        node-version: [20.x]
 
     steps:
-      # ------------------------------
-      # CHECKOUT CODE
-      # ------------------------------
+      # ------------------------------------------------------
+      # STEP 1: Code checkout
+      # ------------------------------------------------------
+      # Ye latest pushed code ko runner (EC2) py copy karta hai
+      # usi jagah jahan runner install hai (~/actions-runner/_work/...)
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # ------------------------------------------------------
+      # STEP 2: Node.js setup
+      # ------------------------------------------------------
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
@@ -29,67 +35,57 @@ jobs:
             VibrexBackend/package-lock.json
             Vibrex/package-lock.json
 
-      # ------------------------------
-      # BACKEND SETUP
-      # ------------------------------
+      # ------------------------------------------------------
+      # BACKEND
+      # ------------------------------------------------------
       - name: Install backend dependencies
         working-directory: ./VibrexBackend
-        run: npm install
+        run: npm ci   # npm ci > npm install: lockfile follow karta hai, faster + reliable
 
       - name: Create backend .env file
         working-directory: ./VibrexBackend
-        run: |
-          touch .env
-          echo "${{ secrets.PROD_BACKEND_ENV }}" > .env
+        run: echo "${{ secrets.PROD_BACKEND_ENV }}" > .env
 
       - name: Restart backend with PM2
         working-directory: ./VibrexBackend
         run: |
-          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 delete vibrex-backend || true
-          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 start index.js --name vibrex-backend
-          /home/ubuntu/.nvm/versions/node/v20.19.5/bin/pm2 save
+          # 'pm2' command PATH mein hona chahiye (neeche note dekho)
+          pm2 delete vibrex-backend || true
+          pm2 start index.js --name vibrex-backend
+          pm2 save
 
-      # ------------------------------
-      # FRONTEND SETUP
-      # ------------------------------
-      - name: Cache frontend dependencies
-        uses: actions/cache@v3
-        with:
-          path: Vibrex/node_modules
-          key: frontend-${{ hashFiles('Vibrex/package-lock.json') }}
-          restore-keys: frontend-
-
+      # ------------------------------------------------------
+      # FRONTEND
+      # ------------------------------------------------------
       - name: Install frontend dependencies
         working-directory: ./Vibrex
         run: npm ci
 
       - name: Create frontend .env file
         working-directory: ./Vibrex
-        run: |
-          echo "${{ secrets.PROD_FRONTEND_ENV }}" > .env
+        run: echo "${{ secrets.PROD_FRONTEND_ENV }}" > .env
 
-      # ------------------------------
-      # FIXED: FRONTEND BUILD (Optimized)
-      # ------------------------------
       - name: Build frontend
         working-directory: ./Vibrex
-        run: |
-          echo "Cleaning node_modules and cache..."
-          rm -rf node_modules
-          npm ci
-          echo "Building frontend with more memory..."
-          export NODE_OPTIONS="--max-old-space-size=8192"
-          npm run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: npm run build
 
-      # ------------------------------
-      # DEPLOY TO NGINX
-      # ------------------------------
+      # ------------------------------------------------------
+      # DEPLOY FRONTEND TO NGINX
+      # ------------------------------------------------------
       - name: Deploy frontend to Nginx
         working-directory: ./Vibrex
         run: |
-          echo "Checking dist folder..."
-          ls -la dist/
-          echo "Deploying build to Nginx..."
+          if [ ! -d "dist" ]; then
+            echo "ERROR: dist folder nahi bani, build fail hua hoga"
+            exit 1
+          fi
           sudo rsync -av --delete dist/ /var/www/html/
-          echo "Restarting Nginx..."
           sudo systemctl restart nginx
+
+      # ------------------------------------------------------
+      # HEALTH CHECK (optional but recommended)
+      # ------------------------------------------------------
+      - name: Verify backend is running
+        run: pm2 list
