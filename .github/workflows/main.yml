@@ -18,8 +18,7 @@ jobs:
       # ------------------------------------------------------
       # STEP 1: Code checkout
       # ------------------------------------------------------
-      # Ye latest pushed code ko runner (EC2) py copy karta hai
-      # usi jagah jahan runner install hai (~/actions-runner/_work/...)
+     
       - name: Checkout code
         uses: actions/checkout@v4
 
