@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const toggleOpen = () => {
     setIsOpen(true);
-    document.body.style.overflow = "hidden"; // 👈 Scroll bar hide
+    document.body.style.overflow = "hidden"; 
   };
 
   const toggleClose = () => {
@@ -124,7 +124,6 @@ const Navbar = () => {
               { name: "About Us", path: "/about" },
               { name: "Gallery", path: "/gallery" },
               { name: "Contact Us", path: "/contact" },
-              { name: "Blogs", path: "/blog" },
               { name: "CodeBreakers", path: "/codeBreakers" },
             ].map((item, i) => (
               <li

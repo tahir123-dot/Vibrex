@@ -14,8 +14,6 @@ import ShowCase from "../../Pages/ProductShowcase/ShowCase";
 import Login from "../../Pages/Admin/Login/Login";
 import Add from "../../Pages/Admin/AddProjects/Add";
 import ProtectedRoute from "../ProtectedRoute";
-import BlogList from "../../Pages/Blogs/BlogList";
-import BlogDetail from "../../Pages/Blogs/BlogDetail";
 
 const AppRoutes = () => {
   const [isReady, setIsReady] = useState(false);
@@ -25,7 +23,7 @@ const AppRoutes = () => {
   useEffect(() => {
     const hasLoaded = sessionStorage.getItem("hasLoaded");
 
-    // 🚀 If first visit and on home route, show loader
+    //  If first visit and on home route, show loader
     if (!hasLoaded && location.pathname === "/") {
       document.body.style.overflow = "hidden"; // Disable scroll while loading
 
@@ -51,12 +49,12 @@ const AppRoutes = () => {
         ease: "power4.inOut",
       });
     } else {
-      // 🚫 Already loaded once → skip loader
+      //  Already loaded once → skip loader
       setIsReady(true);
     }
   }, [location.pathname]);
 
-  // ⏳ While not ready → show loader only
+  //  While not ready → show loader only
   if (!isReady) {
     return (
       <div
@@ -68,7 +66,7 @@ const AppRoutes = () => {
     );
   }
 
-  // ✅ Once ready → render the rest of the app
+  //  Once ready → render the rest of the app
   return (
     <>
       <ScrollToTop />
@@ -78,8 +76,6 @@ const AppRoutes = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<BlogList />} />
-        <Route path="/blog/:blogId" element={<BlogDetail />} />
         <Route path="/codeBreakers" element={<Hackathone />} />
         <Route path="/gallery" element={<ShowCase />} />
         <Route path="/login" element={<Login />} />

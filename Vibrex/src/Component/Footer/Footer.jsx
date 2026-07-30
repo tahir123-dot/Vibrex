@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaYoutube,
   FaTwitter,
-  FaTiktok,
   FaInstagram,
   FaLinkedin,
   FaEnvelope,
@@ -10,15 +9,14 @@ import {
 import { Link } from "react-router-dom";
 
 const socialLinks = [
-  "https://www.youtube.com/channel/UCozjVsfgHcxd3FeTXevFRFg",
+  "https://www.youtube.com/@vibrextech",
   "https://x.com/vibrex_tech",
-  "https://www.tiktok.com/@vibrextech",
-  "https://instagram.com/tahir_.3925",
+  "https://www.instagram.com/vibrextech/",
   "https://www.linkedin.com/company/vibrextech/",
 ];
 
 const Footer = () => {
-  const icons = [FaYoutube, FaTwitter, FaTiktok, FaInstagram, FaLinkedin];
+  const icons = [FaYoutube, FaTwitter, FaInstagram, FaLinkedin];
 
   return (
     <>

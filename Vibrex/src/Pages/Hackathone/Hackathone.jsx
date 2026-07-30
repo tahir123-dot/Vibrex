@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Users, Trophy, Rocket, Star } from "lucide-react";
 
 const members = [
