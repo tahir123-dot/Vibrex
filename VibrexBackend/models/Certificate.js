@@ -8,11 +8,11 @@ const certificateSchema = new mongoose.Schema(
       trim: true,
     },
     email: {
-  type: String,
-  required: true,
-  trim: true,
-  lowercase: true,
-},
+      type: String,
+      required: true,
+      trim: true,
+      lowercase: true,
+    },
     track: {
       type: String,
       required: true,
@@ -30,8 +30,8 @@ const certificateSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    certificateId: { type: String, required: true, unique: true }, 
-    verifyToken: { type: String, required: true, unique: true }, 
+    certificateId: { type: String, required: true, unique: true },
+    verifyToken: { type: String, required: true, unique: true },
   },
   { timestamps: true },
 );

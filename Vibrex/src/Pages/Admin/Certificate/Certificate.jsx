@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { User, Mail, Layers, Calendar, Hash, RefreshCw, Loader2 } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { User, Mail, Layers, Calendar, Loader2 } from "lucide-react";
+import { createCertificate } from "../../../store/Api/certficateApi";
+import { clearCreateStatus } from "../../../store/Slices/Certificate";
 
-const TRACKS = ["Flutter Development", "Backend / MERN", "UI/UX Design"];
-
-// Generates a random, unguessable code appended to the cert ID.
-// Swap this for a call to your backend if you want strictly sequential,
-// DB-checked numbers instead (safer against collisions across admins).
-const generateCertNumber = () => {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
-  return code;
-};
+const TRACKS = ["Frontend Development", "Backend Development", "UI/UX Design"];
 
 const initialState = {
   internName: "",
@@ -20,13 +13,16 @@ const initialState = {
   startDate: "",
   endDate: "",
   issueDate: new Date().toISOString().slice(0, 10),
-  sequence: generateCertNumber(),
 };
 
 const Certificate = () => {
+  const dispatch = useDispatch();
+  const { creating, createError, createdCertificate } = useSelector(
+    (state) => state.certificates
+  );
+
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,27 +48,21 @@ const Certificate = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
-    const certificateId = `VXT-${new Date(form.issueDate).getFullYear()}-${form.sequence}`;
+    // backend schema field names
     const payload = {
-      certificate_id: certificateId,
-      intern_name: form.internName.trim(),
-      intern_email: form.internEmail.trim(),
+      name: form.internName.trim(),
+      email: form.internEmail.trim(),
       track: form.track,
-      start_date: form.startDate,
-      end_date: form.endDate,
-      issue_date: form.issueDate,
-      status: "active",
-      // signatory is attached server-side from a fixed config, not entered here
+      startDate: form.startDate,
+      endDate: form.endDate,
+      issuedDate: form.issueDate,
     };
 
-    setSubmitting(true);
-    try {
-      // TODO: replace with your Redux dispatch, e.g.
-      // await dispatch(createCertificate(payload)).unwrap();
-      console.log("Certificate payload ready for dispatch:", payload);
+    dispatch(clearCreateStatus());
+    const result = await dispatch(createCertificate(payload));
+
+    if (createCertificate.fulfilled.match(result)) {
       setForm(initialState);
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -85,6 +75,21 @@ const Certificate = () => {
         <p className="text-sm text-gray-500 text-center mb-6">
           Enter intern details to issue a new internship certificate
         </p>
+
+        {createdCertificate && (
+          <div className="mb-4 p-3 rounded-lg bg-green-50 border border-green-200 text-sm text-green-700">
+            Certificate {createdCertificate.certificate.certificateId} created.
+            <div className="mt-1 break-all text-xs text-green-600">
+              {createdCertificate.verifyUrl}
+            </div>
+          </div>
+        )}
+
+        {createError && (
+          <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-sm text-red-600">
+            {createError}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
           <FormField
@@ -155,36 +160,13 @@ const Certificate = () => {
             icon={Calendar}
           />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Certificate number
-            </label>
-            <div className="relative">
-              <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                readOnly
-                value={`VXT-${new Date(form.issueDate).getFullYear()}-${form.sequence}`}
-                className="w-full pl-9 pr-10 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-500 bg-gray-50 cursor-not-allowed"
-              />
-              <button
-                type="button"
-                onClick={() => setForm((prev) => ({ ...prev, sequence: generateCertNumber() }))}
-                title="Generate a new number"
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
-              >
-                <RefreshCw className="w-4 h-4" />
-              </button>
-            </div>
-            <p className="text-xs text-gray-400 mt-1">Auto-generated — click the icon to regenerate if needed</p>
-          </div>
-
           <button
             type="submit"
-            disabled={submitting}
+            disabled={creating}
             className="w-full mt-2 bg-gray-900 hover:bg-gray-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-2.5 rounded-lg text-sm flex items-center justify-center gap-2 transition-colors"
           >
-            {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
-            {submitting ? "Saving..." : "Add Certificate"}
+            {creating && <Loader2 className="w-4 h-4 animate-spin" />}
+            {creating ? "Saving..." : "Add Certificate"}
           </button>
         </form>
       </div>
