@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import lgoinRoutes from "./routes/loginRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import certificateRoutes from "./routes/certificateRoutes.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ const Port = process.env.PORT || 5000;
 
 app.use("/api", lgoinRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/certificates", certificateRoutes);
 
 connectDB().then(() => {
   app.listen(Port, "0.0.0.0", () => {
