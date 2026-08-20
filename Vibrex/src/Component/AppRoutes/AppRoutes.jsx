@@ -13,7 +13,9 @@ import ScrollToTop from "./ScrollToTop";
 import ShowCase from "../../Pages/ProductShowcase/ShowCase";
 import Login from "../../Pages/Admin/Login/Login";
 import Add from "../../Pages/Admin/AddProjects/Add";
+import Certificate from "../../Pages/Admin/Certificate/Certificate";
 import ProtectedRoute from "../ProtectedRoute";
+import VerifyCertificate from "../../Pages/VerifyCertificate/VerifyCertificate";
 
 const AppRoutes = () => {
   const [isReady, setIsReady] = useState(false);
@@ -79,11 +81,20 @@ const AppRoutes = () => {
         <Route path="/codeBreakers" element={<Hackathone />} />
         <Route path="/gallery" element={<ShowCase />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/verify/:certificateId/:token" element={<VerifyCertificate />} />
         <Route
           path="/addProject"
           element={
             <ProtectedRoute>
               <Add />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/certificate"
+          element={
+            <ProtectedRoute>
+              <Certificate />
             </ProtectedRoute>
           }
         />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../../store/Slices/productSlice";
+import { Link } from "react-router-dom";
 
 const Add = () => {
   const dispatch = useDispatch();
@@ -140,6 +141,11 @@ const Add = () => {
             {loading ? "Uploading..." : "Add Product"}
           </button>
         </form>
+      </div>
+      <div>
+        <Link to="/certificate">
+          <span>Add Certificate</span>
+        </Link>
       </div>
     </div>
   );
