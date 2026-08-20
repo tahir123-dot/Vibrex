@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import QRCode from "react-qr-code";
-import certficateLogo from "../../assets/vibrex.png";
+//import certficateLogo from "../../assets/vibrex.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchCertificate } from "../../store/Api/certficateApi";
@@ -54,7 +54,7 @@ const VerifyCertificate = () => {
     );
   }
 
-  const verifyUrl = `http://localhost:5173/verify/${certificate.certificateId}/${certificate.verifyToken}`;
+  const verifyUrl = `https://vibrex.tech/verify/${certificate.certificateId}/${certificate.verifyToken}`;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-10">
@@ -64,11 +64,11 @@ const VerifyCertificate = () => {
 
         <div className="relative z-10 h-full flex flex-col items-center text-center px-10 py-8 sm:px-16 sm:py-10">
           {/* Logo */}
-          <img
+          {/*<img
             src={certficateLogo}
             alt="Vibrex Tech"
             className="h-8 sm:h-10 object-contain mb-1"
-          />
+          />*/}
           <div className="font-mono font-bold text-sm sm:text-base tracking-widest">
             VIBREX <span className="text-[#1FB9A3]">TECH</span>
           </div>
