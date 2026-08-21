@@ -1,5 +1,5 @@
 
-import contact from "../../assets/contact.jpg";
+//import contact from "../../assets/contact.jpg";
 import HubSpotContactForm from "./HubSpotContactForm";
 
 
@@ -11,7 +11,7 @@ export default function Contact() {
         className="relative flex flex-col items-start justify-center 
              px-6 md:px-16 lg:px-24 h-screen max-h-[900px] overflow-hidden 
              bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${contact})` }}
+       // style={{ backgroundImage: `url(${contact})` }}
       >
         {/* Overlay for better readability */}
         <div className="absolute inset-0 bg-black/60"></div>
