@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import QRCode from "react-qr-code";
-//import certficateLogo from "../../assets/vibrex.png";
+import certficateLogo from "../../assets/vibrex.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchCertificate } from "../../store/Api/certficateApi";
@@ -54,21 +54,21 @@ const VerifyCertificate = () => {
     );
   }
 
-  const verifyUrl = `https://vibrex.tech/verify/${certificate.certificateId}/${certificate.verifyToken}`;
+  const verifyUrl = `http://localhost:5173/verify/${certificate.certificateId}/${certificate.verifyToken}`;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-10">
-      <div className="relative w-full max-w-3xl aspect-[1122/793] bg-[#FAF8F3] shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-3xl bg-[#FAF8F3] shadow-2xl overflow-hidden aspect-auto sm:aspect-[1122/793]">
         <div className="absolute inset-[18px] border-[1.5px] border-[#12141A]" />
         <div className="absolute inset-[23px] border border-[#D8D3C5]" />
 
-        <div className="relative z-10 h-full flex flex-col items-center text-center px-10 py-8 sm:px-16 sm:py-10">
+        <div className="relative z-10 h-full flex flex-col items-center text-center px-6 py-8 sm:px-16 sm:py-10">
           {/* Logo */}
-          {/*<img
+          <img
             src={certficateLogo}
             alt="Vibrex Tech"
             className="h-8 sm:h-10 object-contain mb-1"
-          />*/}
+          />
           <div className="font-mono font-bold text-sm sm:text-base tracking-widest">
             VIBREX <span className="text-[#1FB9A3]">TECH</span>
           </div>
@@ -85,12 +85,12 @@ const VerifyCertificate = () => {
           </div>
 
           {/* Title */}
-          <h1 className="font-serif text-2xl sm:text-4xl mt-2">
+          <h1 className="font-serif text-xl sm:text-4xl mt-2">
             Certificate of Internship
           </h1>
 
           {/* Intern name */}
-          <h2 className="font-serif font-semibold text-2xl sm:text-4xl mt-5 pb-2 border-b-2 border-[#12141A] min-w-[260px]">
+          <h2 className="font-serif font-semibold text-xl sm:text-4xl mt-5 pb-2 border-b-2 border-[#12141A] min-w-0 sm:min-w-[260px] max-w-full break-words px-2">
             {certificate.name}
           </h2>
 
@@ -120,7 +120,7 @@ const VerifyCertificate = () => {
           </p>
 
           {/* Footer: QR + verify link (no signature section) */}
-          <div className="mt-auto w-full flex items-center justify-center gap-3 pt-6">
+          <div className="mt-8 sm:mt-auto w-full flex flex-wrap items-center justify-center gap-3 pb-2 sm:pt-6 sm:pb-0">
             <div className="bg-white p-1.5 border-[1.5px] border-[#12141A]">
               <QRCode value={verifyUrl} size={56} />
             </div>
@@ -140,5 +140,3 @@ const VerifyCertificate = () => {
 };
 
 export default VerifyCertificate;
-
-
