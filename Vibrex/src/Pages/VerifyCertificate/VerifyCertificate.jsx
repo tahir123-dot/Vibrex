@@ -54,7 +54,7 @@ const VerifyCertificate = () => {
     );
   }
 
-  const verifyUrl = `http://localhost:5173/verify/${certificate.certificateId}/${certificate.verifyToken}`;
+  const verifyUrl = `https://vibrex.tech/verify/${certificate.certificateId}/${certificate.verifyToken}`;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 py-10">
